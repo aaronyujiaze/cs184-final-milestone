@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184 Final Project</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2019</h1>
+<h1 align="middle">Final Project: Interstellar</h1>
+<h1 align="middle">Milestone Status Report</h1>
+
+<h2 align="middle">Guowei Yang, CS184-???</h2>
+<h2 align="middle">Violet Fu, CS184-???</h2>
+<h2 align="middle">Jia Ze Yu, CS184-abn</h2>
+
+<br><br>
+
+<div>
+
+<h2 align="middle">Overview</h2>
+
+<p>We intend to implement a simulation that produces a photorealistic visual rendering of two planets colliding which utilizes several techniques we have learned in this class including meshes, shading, texture mapping, ray tracing and physics simulation. Initially, our plan was to create planets that consist of point masses and compute the position and velocity of each point mass using the law of conservation of momentum, but we soon realize this is too computationally expensive to be practical. Hence, we turn to the industry practice of artistic rendering approach which is also able to render the planetary collision realistically.</p>
+
+
+<h2 align="middle">Exploring visual effects using Blender</h2>
+
+<p>Before implementing our project directly, we first explored the pipeline of artistic rendering using Blender. We realized that when two planets collide, we need a ring-like structure called Torus between the two spheres to create the effects of explosions that emit light during the collision. </p>
+
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/before-collision.png" align="middle" width="500px"/>
+        <figcaption align="middle">Before Collision</figcaption>
+      </td>
+      <td>
+        <img src="images/during-collision.png" align="middle" width="500px"/>
+        <figcaption align="middle">During Collision</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>We also realize that during the collision, we need to apply shading that fades the planets as they disintegrate into pieces. We render the pieces as icospheres with the same shading as the planet with random sizes and positions. We also set their motion such that they travel outwards in every direction from the center of each planet.</p>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/fading.png" align="middle" width="500px"/>
+        <figcaption align="middle">Before Fading</figcaption>
+      </td>
+      <td>
+        <img src="images/faded.png" align="middle" width="500px"/>
+        <figcaption align="middle">After Fading</figcaption>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>To make the rendering even more realistic, we need to simulate the geological compositions and activities of the planet where there are terrains on the surface of the planets and magma erruptions in response to the other planet's gravity as they approach each other. To achieve this, we implemented bump mapping and displacement mapping on the surface of the planets. The shading on the surface of the planet also changes as they approach each other.</p>
+
+<div align="middle">
+  <img src="images/shading.png" align="middle" width="800px"/>
+  <figcaption align="middle">Shading Composition</figcaption>
+</div>
+
+<p>We then specify the light sources where Blender handles the ray tracing. We also change the background of the space. It takes about an hour to render the 200 frames shown below.</p>
+
+<div align="middle">
+  <img src="images/blender.gif" align="middle" width="800px"/>
+  <figcaption align="middle">Planetary Collision Rendering using Blender</figcaption>
+</div>
+
+
+<h2 align="middle">Implementing our own renderer</h2>
+
+<p>Having learned several keypoints about the workflow of rendering planetary collision on Blender, we are ready to implement our own renderer on nanoGUI. We first implemented sphereMesh objects with texture mapping of images of planet surfaces on them. </p>
+
+<div align="middle">
+  <img src="images/solarsystem.jpg" align="middle" width="800px"/>
+  <figcaption align="middle">Solar System on nanoGUI</figcaption>
+</div>
+
+<h2 align="middle">Reflection on Progress</h2>
+
+<p>We have demonstrated preliminary results of realistic rendering of planetary collisions using Blender and we believe that we are heading in the right direction in implementing our own renderer. We have accomplished the construction of the solar system and the animation of the planets in our own renderer. Relative to our plan in our proposal, we are right on track in delivering a renderer of photorealistic planetary collisions.</p>
+
+</body>
+</html>
