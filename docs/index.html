@@ -27,8 +27,8 @@
 <h1 align="middle">Final Project: Interstellar</h1>
 <h1 align="middle">Milestone Status Report</h1>
 
-<h2 align="middle">Guowei Yang, CS184-???</h2>
-<h2 align="middle">Violet Fu, CS184-???</h2>
+<h2 align="middle">Guowei Yang, CS184-aam</h2>
+<h2 align="middle">Violet Fu, CS184-abj</h2>
 <h2 align="middle">Jia Ze Yu, CS184-abn</h2>
 
 <br><br>
@@ -97,13 +97,85 @@
 <p>Having learned several keypoints about the workflow of rendering planetary collision on Blender, we are ready to implement our own renderer on nanoGUI. We first implemented sphereMesh objects with texture mapping of images of planet surfaces on them. </p>
 
 <div align="middle">
-  <img src="images/solarsystem.jpg" align="middle" width="800px"/>
+  <img src="images/solarsystem.jpg" align="middle" width="500px"/>
   <figcaption align="middle">Solar System on nanoGUI</figcaption>
+</div>
+
+<h3 align="middle">A) Modeling Planets & Texture Mapping</h3>
+
+<p>We successfully modeled our planets using sphere meshes with texture mapping. A planet is represented using a Sphere class. The sphere contains attributes like mass, radius, position of origin, and a “prev” field which is used to calculate the initial momentum so that the planets won’t collapse to each other.  The results are as follows: </p>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/jupiter.png" align="middle" width="300px"/>
+      </td>
+      <td>
+        <img src="images/earth.png" align="middle" width="300px"/>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3 align="middle">B) Creating the Universe Environment Lighting</h3>
+
+<p>In order to simulate the effect that the planets are contained within a universe, we rendered a giant sphere that encloses the planets inside. Applying a galaxy texture will create the universe.</p>
+
+<div align="middle">
+  <img src="images/space.png" align="middle" width="500px"/>
+  <figcaption align="middle">Background</figcaption>
+</div>
+
+<h3 align="middle">C) Simulating gravity</h3>
+
+<p>We successfully modeled our planets using sphere meshes with texture mapping. A planet is represented using a Sphere class. The sphere contains attributes like mass, radius, position of origin, and a “prev” field which is used to calculate the initial momentum so that the planets don't collapse to the center. We use the famous universal law of gravity to calculate the forces exerted on each planet, and update the planets’ location using Verlet Integration. </p>
+
+<div align="middle">
+  <img src="images/eq.jpg" align="middle" width="500px"/>
+  <figcaption align="middle">Gravitational Force</figcaption>
+</div>
+
+
+<h3 align="middle">C) Preliminary Results</h3>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+        <img src="images/6.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/2.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/3.png" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/4.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="images/7.gif" align="middle" width="500px"/>
+      </td>
+      <td>
+        <img src="images/1.png" align="middle" width="500px"/>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <h2 align="middle">Reflection on Progress</h2>
 
-<p>We have demonstrated preliminary results of realistic rendering of planetary collisions using Blender and we believe that we are heading in the right direction in implementing our own renderer. We have accomplished the construction of the solar system and the animation of the planets in our own renderer. Relative to our plan in our proposal, we are right on track in delivering a renderer of photorealistic planetary collisions.</p>
+<p>We have demonstrated preliminary results of realistic rendering of planetary collisions using Blender and we believe that we are heading in the right direction in implementing our own renderer. We have accomplished the construction of the solar system and the animation of the planets in our own renderer. Relative to our plan in our proposal, we have accomplished the mesh construction and texture mapping and are right on track in delivering a renderer of photorealistic planetary collisions. In the following weeks, we will be implementing the collisions and ray tracing.</p>
+
+
+<h2 align="middle">Milestone Video and Presentation Slides</h2>
+
+<a href='https://docs.google.com/presentation/d/1DqDu1mozxr1IDJEj5qsfb7PhfR50qsTCpXYajRQh1vs/edit?usp=sharing'>Slides</a>
 
 </body>
 </html>
